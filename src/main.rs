@@ -1,10 +1,12 @@
-mod itp1_1;
-mod itp1_2;
-mod itp1_3;
+//! AIZU ONLINE JUDGEの回答用ライブラリ(`aizu_rust_lib`)をコマンドラインで実行して
+//! テストするためのランナー(コンソールアプリ)。
 
+use aizu_rust_lib::*;
+
+/// 各回答をコマンドラインで実行するためのエントリポイント。
 fn main() {
     // itp1_1::a::main()
-    // itp1_1::b::main()
+    itp1_1::b::main();
     // itp1_1::c::main()
     // itp1_1::d::main()
     // itp1_2::a::main()
@@ -13,5 +15,5 @@ fn main() {
     // itp1_2::d::main()
     // itp1_3::a::main();
     // itp1_3::b::main();
-    itp1_3::c::main();
+    // itp1_3::c::main();
 }
