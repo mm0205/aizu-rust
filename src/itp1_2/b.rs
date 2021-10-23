@@ -1,7 +1,6 @@
 //! ITP1_2_Bの回答。
 //! [https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_2_B](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_2_B)
 
-use std::cmp::Ordering;
 use std::io;
 
 /// ITP1_2_Bの回答(エントリポイント)。
@@ -14,7 +13,7 @@ pub fn main() {
                 let result = is_in_order(&dataset);
                 let output = result_to_message(result);
                 println!("{}", output);
-                continue
+                continue;
             }
         }
         return;
@@ -29,6 +28,7 @@ struct Dataset {
     c: i32,
 }
 
+//noinspection DuplicatedCode
 impl Dataset {
     /// 文字列からデータセットを作成する。
     ///
@@ -104,22 +104,4 @@ mod test {
         assert_eq!("Yes", result_to_message(true));
         assert_eq!("No", result_to_message(false));
     }
-}
-
-fn answer(line: &str) {
-    let fields: Vec<&str> = line.split(" ").collect();
-    let a: i32 = fields[0].parse().unwrap();
-    let b: i32 = fields[1].parse().unwrap();
-    let c: i32 = fields[2].parse().unwrap();
-
-    let no = "No";
-
-    let output = match a.cmp(&b) {
-        Ordering::Less => match b.cmp(&c) {
-            Ordering::Less => "Yes",
-            _ => no
-        },
-        _ => no
-    };
-    println!("{}", output);
 }
