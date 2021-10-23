@@ -1,5 +1,8 @@
+//! ITP1_2_Dの回答。
+//! [https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_2_D](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_2_D)
 use std::io;
 
+/// ITP1_2_Dの回答(エントリポイント)。
 #[allow(dead_code)]
 pub fn main() {
     loop {
