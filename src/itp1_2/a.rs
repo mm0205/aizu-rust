@@ -1,4 +1,5 @@
 //! ITP1_2_Aの回答。
+//! [https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_2_A](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_2_A)
 
 use std::cmp::Ordering;
 use std::io;
