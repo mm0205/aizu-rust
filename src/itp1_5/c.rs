@@ -1,11 +1,11 @@
-//! ITP1_5_Aの回答
-//! [https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_5_A](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_5_A)
+//! ITP1_5_Cの回答
+//! [https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_5_C](https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_5_C)
 
 use std::io::stdin;
 use std::str::FromStr;
 
 //noinspection DuplicatedCode
-/// ITP1_5_Aの回答
+/// ITP1_5_Cの回答
 #[allow(dead_code)]
 pub fn main() {
     loop {
@@ -67,7 +67,23 @@ impl FromStr for Dataset {
 }
 
 fn create_rect(dataset: &Dataset) -> String {
-    vec!["#".repeat(dataset.w as usize); dataset.h as usize].join("\n")
+    let src = vec!['#', '.'];
+    let mut result = String::new();
+
+    let mut y_offset = 0;
+    for y in 0..dataset.h {
+        if y > 0 {
+            result.push('\n');
+        }
+        let mut x_offset = 0;
+        for _ in 0..dataset.w {
+            let c = src[(x_offset + y_offset) % 2];
+            result.push(c);
+            x_offset += 1;
+        }
+        y_offset += 1;
+    }
+    result.to_string()
 }
 
 #[cfg(test)]
@@ -99,8 +115,7 @@ mod test {
 
     #[test]
     fn test_create_rect() {
-        assert_eq!("#", create_rect(&Dataset::new(1, 1)));
-        assert_eq!("##", create_rect(&Dataset::new(1, 2)));
-        assert_eq!("####\n####\n####", create_rect(&Dataset::new(3, 4)));
+        assert_eq!("#.#.\n.#.#\n#.#.", create_rect(&Dataset::new(3, 4)));
+        assert_eq!("#.#.#.\n.#.#.#\n#.#.#.\n.#.#.#\n#.#.#.", create_rect(&Dataset::new(5, 6)));
     }
 }
