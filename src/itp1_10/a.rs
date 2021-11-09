@@ -44,6 +44,7 @@ impl From<&str> for Dataset {
     }
 }
 
+//noinspection DuplicatedCode
 #[cfg(test)]
 mod test {
     use super::*;
@@ -56,8 +57,6 @@ mod test {
         assert_eq!("b", v[1]);
         assert_eq!("c", v[2]);
     }
-
-
 
     macro_rules! assert_eq_f {
         ($x:expr, $y:expr, $message: expr) => {
